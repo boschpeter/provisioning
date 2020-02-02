@@ -6,3 +6,25 @@
       name: "{{ mysql_pkg }}" 
       update_cache: yes
 
+  - name: mysql-client
+    apt:
+      name:
+        - mysql-client
+      state: latest
+      cache_valid_time: 3600    # update cache if more than an hour old
+#    
+#  - name: mysql-client
+#    apt:
+#      name: "{{ item }}"
+#      state: present
+#      update_cache: True
+#      become: true
+#      with_items:
+#           - mysql-client
+#           - python3-pip
+#           - libmysqlclient-dev
+#           - python3-dev
+#           - python3-mysqldb
+# 
+#           
+#

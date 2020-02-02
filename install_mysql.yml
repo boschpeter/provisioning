@@ -1,5 +1,5 @@
 # Playbook for Database Servers
-# filename: install_mysql_db_server.yml 
+# filename: install_mysql.yml 
 ---
 - hosts: all
   remote_user: boscp08

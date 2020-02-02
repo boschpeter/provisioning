@@ -27,3 +27,15 @@
 - include: install_nodejs_10_18_1.yml
 - include: install_nvm_8_11_3.yml
 - include: clone_socialcoin_api.yml
+#- include: mysql_create_db.yml
+#- include: mysql_import_data
+
+
+#boscp08@ubuntuVMX:~$ nodejs --version
+#v10.18.1
+#boscp08@ubuntuVMX:~$ node --version
+#v10.18.1
+#boscp08@ubuntuVMX:~$ npm --version
+#6.13.4
+#boscp08@ubuntuVMX:~$ nvm --version
+#0.33.0
