@@ -5,7 +5,7 @@
   pre_tasks:
      - shell: echo 'I":" Beginning to configure nvm.'
   roles:
-     - install_nvm
+     - install_nvm_8_11_3
   post_tasks:
      - shell: echo 'I":" Done configuring nvm...'
 
