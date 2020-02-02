@@ -1,0 +1,717 @@
+    1  ipconfig
+    2  ifconfig
+    3  sudo usermod -aG docker boscp08
+    4  docker -v
+    5  sudo apt install docker.io
+    6  git -v
+    7  git --version
+    8  docker -v
+    9  sudo add-apt-repository    "deb [arch=arm64] https://download.docker.com/linux/ubuntu \
+   10     $(lsb_release -cs) \
+   11     stable"
+   12  sudo apt-key fingerprint 0EBFCD88
+   13  sudo apt-get update 
+   14  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose
+   15  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose
+   16  exit
+   17  ssh boscp@discipl.westeurope.cloudapp.azure.com
+   18  ssh-copy-id -i ~/.ssh/id_rsa.pub boscp@discipl.westeurope.cloudapp.azure.com
+   19  ssh-copy-id -i ~/.ssh/id_rsa.pub boscp08@discipl.westeurope.cloudapp.azure.com
+   20  exit
+   21  sudo apt install docker-compose
+   22  docker -v
+   23  docker-compose -v
+   24  git --version
+   25  sudo usermod -aG docker boscp08
+   26  systemctl status docker
+   27  systemctl enable docker
+   28  systemctl start docker
+   29  sudo docker run hello-world
+   30  sudo reboot
+   31  docker -v
+   32  sudo apt install docker.io
+   33  ping localhost
+   34  cd /etc
+   35  sudo cp hosts hosts_orig
+   36  nano hostg
+   37  nano hosts
+   38  sudo nano hosts
+   39  ping waardepapieren-service
+   40  cd 
+   41  cd Projects/scratch/virtual-insanity/waardepapieren/
+   42  ls
+   43  cd clerk-frontend/
+   44  ls
+   45  mv Dockerfile  Dockerfile_`date "+%Y%m%d-%H%M%S"`
+   46  ls
+   47  touch Dockerfile
+   48  echo "FROM node:10
+   49  RUN mkdir /app
+   50  ADD package.json package-lock.json /app/
+   51  ENV REACT_APP_EPHEMERAL_ENDPOINT=https://$CERT_HOST_IP:443/api/eph
+   52  ENV REACT_APP_EPHEMERAL_WEBSOCKET_ENDPOINT=wss://$CERT_HOST_IP:443/api/eph-ws
+   53  WORKDIR /app
+   54  RUN npm install --unsafe-perm
+   55  ADD public /app/public
+   56  ADD src /app/src
+   57  ARG CERTIFICATE_HOST
+   58  ENV REACT_APP_CERTIFICATE_HOST=
+   59  RUN npm run build
+   60  FROM nginx:1.15.8
+   61  ADD nginx/nginx.conf /etc/nginx/nginx.conf
+   62  COPY --from=0 /app/build /usr/share/nginx/html
+   63  #  volumes:
+   64  #    - ./clerk-frontend/nginx/certs:/etc/nginx/certs:rw
+   65  RUN mkdir /etc/nginx/certs
+   66  ADD nginx/certs/org.crt /etc/nginx/certs/org.crt
+   67  ADD nginx/certs/org.key /etc/nginx/certs/org.key"  > Dockerfile
+   68  ls
+   69  cat Dockerfile
+   70  ls
+   71  cd /etc/
+   72  cd
+   73  ls
+   74  cd Projects/scratch/virtual-insanity/waardepapieren/
+   75  ls
+   76  cd clerk-frontend/
+   77  ls
+   78  uname -a
+   79  uname
+   80  ls
+   81  images
+   82  docker images
+   83  docker build -t boscp08/clerk-frontend:t1
+   84  docker build -t boscp08/clerk-frontend:t1 .
+   85  docker images
+   86  docker run -d -p 443:443 boscp08/clerk-frontend:t1
+   87  docker ps
+   88  docker container lss
+   89  docker container ps
+   90  docker images
+   91  docker containers 
+   92  docker container
+   93  docker run -p 443:443 boscp08/clerk-frontend:t1
+   94  ping waardepapieren-service
+   95  ls
+   96  docker images
+   97  uname -a
+   98  exit
+   99  ping discipl.westeurope.cloudapp.azure.com
+  100  name -n
+  101  uname -n
+  102  uname -a
+  103  ifconfig
+  104  cd /etc
+  105  cat hosts
+  106  snapd
+  107  snap
+  108  kubectl
+  109  kubectl -v
+  110  sudo snap install kubectl
+  111  snap install kubectl
+  112  sudo snap install kubectl
+  113  sudo apt-get update && sudo apt-get install -y apt-transport-https   
+  114  2to3-2.7 
+  115  curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -   
+  116  echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d|/kubernetes.list
+  117  sudo apt-get update   
+  118  sudo apt-get install -y kubectl   
+  119  sudo snap install kubectl
+  120  snap install kubectl[H
+  121  sudo snap install kubectl
+  122  sudo snap install kubectl --classic
+  123  kubectl version
+  124  sudo cp /etc/kubernetes/admin.conf $HOME/
+  125  cd /etc
+  126  ls
+  127  exit\
+  128  exit
+  129  ls -ltr
+  130  cd Projects/scratch/virtual-insanity/waardepapieren/
+  131  docker-compose -f docker-compose-travis.yml down
+  132  docker-compose -f docker-compose-travis.yml up
+  133  exit
+  134  ssh-copy-id -i ~/.ssh/id_rsa.pub boscp08@discipl.westeurope.cloudapp.azure.com
+  135  ssh-keygen
+  136  ssh-copy-id -i ~/.ssh/id_rsa.pub boscp08@discipl.westeurope.cloudapp.azure.com
+  137  pwd
+  138  claear
+  139  cd Projects/scratch/virtual-insanity
+  140  ls
+  141  rm -rf waardepapieren/
+  142  git clone https://github.com/discipl/waardepapieren.git
+  143  cd waardepapieren/
+  144  . bfg.bash
+  145  cd ..
+  146  cd waardepapieren/
+  147  . bfg.bash
+  148  docker ps
+  149  docker system prune -a
+  150  cd Projects/scratch/virtual-insanity/
+  151  git clone https://github.com/boschpeter/AZ_VM_waardepapieren-demo_westeurope_cloudapp_azure_com.git
+  152  cd AZ_VM_waardepapieren-demo_westeurope_cloudapp_azure_com/
+  153  ls
+  154  . az_vm_clone_build.bash 
+  155  ls
+  156  cat docker-compose-travis.yml 
+  157  exit
+  158  uptime
+  159  sudo reboot
+  160  uptime
+  161  cd Projects/scratch/virtual-insanity/waardepapieren/
+  162  docker-compose -f docker-compose-travis.yml up --build
+  163  cd waardepapieren-service/configuration/
+  164  ls
+  165  nano waardepapieren-config-compose.json 
+  166  cd ..
+  167  docker-compose -f docker-compose-travis.yml up --build
+  168  cd waardepapieren-service/configuration/
+  169  ls
+  170  cat waardepapieren-config.json
+  171  cat waardepapieren-config-compose.json
+  172  cat waardepapieren-config-compose-travis.json
+  173  ls -ltr
+  174  nano waardepapieren-config.json
+  175  cd ..
+  176  docker-compose -f docker-compose-travis.yml up --build
+  177  docker container ps
+  178  cd Projects/scratch/virtual-insanity
+  179  ls
+  180  cp -r waardepapieren/ waardepapieren_brf_mock-nlx
+  181  ls
+  182  cd waardepapieren
+  183  rm -rf LOG_DIR/
+  184  grep -lr westeurope.cloudapp.azure.com .
+  185  cat docker-compose-travis.yml 
+  186  grep -lr westeurope.cloudapp.azure.com .
+  187  docker container ps
+  188  cd waardepapieren-service/configuration/
+  189  ls
+  190  ls -ltr
+  191  nano waardepapieren-config-compose.json 
+  192  nano waardepapieren-config-compose-travis.json 
+  193  nano waardepapieren-config-compose.json 
+  194  cd ..
+  195  docker-compose -f docker-compose-travis.yml up --build
+  196  docker container ps
+  197  grep -lr westeurope.cloudapp.azure.com .
+  198  cd cl
+  199  cd clerk-frontend/
+  200  cat Dockerfile 
+  201  cd ..
+  202  grep -lr westeurope.cloudapp.azure.com .
+  203  cd clerk-frontend/nginx/
+  204  cat nginx.conf
+  205  cd ..
+  206  cd waardepapieren-service/
+  207  cat Dockerfile 
+  208  clear
+  209  cat Dockerfile 
+  210  cd..
+  211  cd ..
+  212  cd mock-nlx/
+  213  clear
+  214  cat Dockerfile 
+  215  nano Dockerfile 
+  216  cd ..
+  217  grep -lr westeurope.cloudapp.azure.com .
+  218  clear
+  219  cat docker-compose-travis.yml 
+  220  cd waardepapieren-service/configuration/
+  221  clear
+  222  cat waardepapieren-config.json 
+  223  nano waardepapieren-config.json 
+  224  clear
+  225  nano waardepapieren-config.json 
+  226  cat waardepapieren-config.json 
+  227  clear
+  228  cat waardepapieren-config.json 
+  229  clear
+  230  ls
+  231  cat waardepapieren-config-compose.json 
+  232  cat waardepapieren-config-compose.json 
+  233  nano waardepapieren-config-compose.json 
+  234  cat waardepapieren-config-compose.json 
+  235  clear
+  236  cat waardepapieren-config-compose.json 
+  237  nano waardepapieren-config-compose.json 
+  238  cat waardepapieren-config.json
+  239  clear
+  240  ls
+  241  cat waardepapieren-config-compose-travis.json 
+  242  cd ..
+  243  docker system prune -a
+  244  docker-compose -f docker-compose-travis.yml up --build
+  245  docker container ps
+  246  ls
+  247  nano bfg.bash 
+  248  cd Projects/
+  249  ls
+  250  cd scratch/
+  251  cd virtual-insanity/
+  252  ls
+  253  cd waardepapieren
+  254  ls
+  255  cd ..
+  256  rm -rf waardepapieren
+  257  git clone https://github.com/discipl/waardepapieren.git
+  258  cd waardepapieren
+  259  nano docker-compose-travis.yml 
+  260  cd clerk-frontend/
+  261  nano Dockerfile 
+  262  cd nginx/
+  263  nano nginx.conf 
+  264  cd ..
+  265  cd waardepapieren-service/
+  266  cat Dockerfile 
+  267  cd configuration/
+  268  ls
+  269  nano waardepapieren-config.json 
+  270  nano waardepapieren-config-travis.json 
+  271  nano waardepapieren-config-compose.json 
+  272  nano waardepapieren-config-compose-travis.json 
+  273  cd ..
+  274  docker system prune -a
+  275  clear
+  276  docker-compose -f docker-compose-travis.yml up
+  277  docker container ps
+  278  cd Projects/scratch/virtual-insanity/waardepapieren
+  279  nano docker-compose-travis.yml 
+  280  cd Projects/scratch/virtual-insanity/waardepapieren
+  281  ls -ltr
+  282  cd clerk-frontend/
+  283  ls -ltr
+  284  cd ..
+  285  cd waardepapieren-service/
+  286  ls -ltr
+  287  cd configuration/
+  288  ls
+  289  ls -ltr
+  290  cd ..
+  291  cd clerk-frontend/
+  292  cd nginx/
+  293  ls -ltr
+  294  cd ..
+  295  cd waardepapieren-service/
+  296  ls -ltr
+  297  nano Dockerfile 
+  298  . bfg.bash mm 2 discipl.westeurope.cloudapp.azure.com
+  299  cd  clerk-frontend/
+  300  cat Dockerfile 
+  301  cd nginx/
+  302  ls
+  303  cat nginx.conf 
+  304  cd ..
+  305  cat Dockerfile 
+  306  cd ..
+  307  ls
+  308  cd waardepapieren
+  309  cat docker-compose-travis.yml 
+  310  cd clerk-frontend/
+  311  cat Dockerfile 
+  312  ls
+  313  cd ..
+  314  git clone https://github.com/boschpeter/waardepapieren.git
+  315  cd waardepapieren
+  316  . bfg.bash 
+  317  cd clerk-frontend/
+  318  nano Dockerfile 
+  319  cd ..
+  320  nano brf.bash
+  321  . bfg.bash 
+  322  docker-compose -f docker-compose-travis.yml up --build
+  323  clear
+  324  docker-compose -f docker-compose-travis.yml up --build
+  325  docker-compose -f docker-compose-travis.yml down
+  326  exit
+  327  git clone https://github.com/boschpeter/waardepapieren.git
+  328  cd waardepapieren
+  329  . bfg.bash 
+  330  docker container ps
+  331  docker exec -it 25 bash
+  332  docker exec -it 25 env
+  333  clear
+  334  docker-compose -f docker-compose-travis.yml up --build
+  335  pwd
+  336  ls
+  337  exit
+  338  cd Projects/
+  339  cd scratch/virtual-insanity/
+  340  rm -rf waardepapieren
+  341  git clone https://github.com/boschpeter/waardepapieren.git
+  342  cd waardepapieren
+  343  . bfg
+  344  . bfg.bash
+  345  uptime
+  346  sudo reboot
+  347  cd Projects/scratch/virtual-insanity/
+  348  cd waardepapieren
+  349  cd clerk-frontend/
+  350  nano Dockerfile 
+  351  cd ..
+  352  docker container ps
+  353  cd
+  354  cd Projects/scratch/virtual-insanity/
+  355  ls
+  356  git clone https://github.com/boschpeter/waardepapieren.git
+  357  cd waardepapieren/
+  358  . bfg.bash 
+  359  cat docker-compose-travis.yml
+  360  . bfg.bash 
+  361  cd ..
+  362  rm -rf waardepapieren/
+  363  git clone https://github.com/boschpeter/waardepapieren.git
+  364  cd waardepapieren/
+  365  . bfg.bash 
+  366  docker images
+  367  echo ${GIT_REPO}_${MOCK_NLX}}
+  368  cd ..
+  369  rm -rf waardepapieren/
+  370  git clone https://github.com/boschpeter/waardepapieren.git
+  371  cd waardepapieren/
+  372  . bfg.bash 
+  373  docker images
+  374  echo ${DOCKER_USER} ${GIT_REPO}_${MOCK_NLX}} ${GIT_REPO}_${MOCK_NLX} ${DOCKER_VERSION_TAG}
+  375  cd ..
+  376  git clone https://github.com/boschpeter/waardepapieren.git
+  377  rm -rf waardepapieren/
+  378  git clone https://github.com/boschpeter/waardepapieren.git
+  379  cd waardepapieren/
+  380  . bfg.bash
+  381  docker imaes
+  382  docker images
+  383  cd ..
+  384  rm -rf
+  385  ls
+  386  rm -rf waardepapieren/
+  387  git clone https://github.com/boschpeter/waardepapieren.git
+  388  cd waardepapieren/
+  389  ls -ltr
+  390  . bfg.bash 
+  391  docker_tag_image  ${DOCKER_USER} ${GIT_REPO}_${WAARDEPAPIEREN_SERVICE}  ${GIT_REPO}_${WAARDEPAPIEREN_SERVICE} ${DOCKER_VERSION_TAG}
+  392  docker images
+  393  . bfg.bash 
+  394  docker_push_image  ${DOCKER_USER} ${GIT_REPO}_${MOCK_NLX} ${DOCKER_VERSION_TAG}
+  395  echo ${DOCKER_USER} ${GIT_REPO}_${MOCK_NLX} ${DOCKER_VERSION_TAG}
+  396  . bfg.bash 
+  397  echo ${DOCKER_USER} ${GIT_REPO}_${MOCK_NLX} ${DOCKER_VERSION_TAG}
+  398  docker_push_image ${DOCKER_USER} ${GIT_REPO}_${MOCK_NLX} ${DOCKER_VERSION_TAG}
+  399  docker login
+  400  docker login -u boscp08
+  401  exit
+  402  cd Projects/scratch/virtual-insanity/
+  403  ls
+  404  mv waardepapieren 20200106_waardepapieren_zonder_volumes_dingo_jeuh
+  405  cd /etc
+  406  cat hosts
+  407  docker login
+  408  cd Projects/scratch/virtual-insanity/waardepapieren
+  409  cd LOG_DIR/
+  410  ls
+  411  nano LOG_20200106_18_34.log 
+  412  docker login -u boscp08
+  413  sudo reboot
+  414  git clone https://github.com/boschpeter/waardepapieren.git
+  415  cd waardepapieren/
+  416  . bfg.bash mm 2 discipl.westeurope.cloudapp.azure.com
+  417  sudo reboot
+  418  cd Projects/scratch/virtual-insanity/
+  419  cd waardepapieren/
+  420  ls
+  421  . bfg.bash mm 1 discipl.westeurope.cloudapp.azure.com
+  422  docker images
+  423  docker container ps
+  424  docker container ps -a
+  425  docker run -p 80:80 --name mock-nlx boscp08/waardepapieren_mock-nlx:1
+  426  git clone httpss://github.comd/discipl/waardepapieren.git
+  427  git clone httpss://github.com/discipl/waardepapieren.git
+  428  git clone https://github.com/discipl/waardepapieren.git
+  429  cd waardepapieren/
+  430  curl -o bfg.bash  https://raw.githubusercontent.com/boschpeter/waardepapieren/master/bfg.bash
+  431  . bfg.bash mm 1 waardepapieren-demo.westeurope.cloudapp.azure.com
+  432  . bfg.bash mm 1 discipl.westeurope.cloudapp.azure.com
+  433  cd ..
+  434  . bfg.bash mm 1 discipl.westeurope.cloudapp.azure.com
+  435  docker-compose -f docker-compose-travis.yml up --build
+  436  sudo reboot
+  437  cd Projects/scratch/virtual-insanity/
+  438  cd waardepapieren/
+  439  . bfg.bash mm 1 discipl.westeurope.cloudapp.azure.com
+  440  docker-compose -f docker-compose-travis.yml restart  --build
+  441  docker-compose -f docker-compose-travis.yml restart
+  442  crontab -e
+  443  cd
+  444  pwd
+  445  Cd /home/boscp08/Projects/scratch/virtual-insanity/waardepapieren
+  446  cd /home/boscp08/Projects/scratch/virtual-insanity/waardepapieren
+  447  cd
+  448  docker-compose -f /home/boscp08/Projects/scratch/virtual-insanity/waardepapierendocker-compose-travis.yml restart
+  449  docker-compose -f /home/boscp08/Projects/scratch/virtual-insanity/waardepapieren/docker-compose-travis.yml restart
+  450  crontab -e
+  451  crontab -l
+  452  docker-compose -f /home/boscp08/Projects/scratch/virtual-insanity/waardepapieren/docker-compose-travis.yml restart 
+  453  docker ps
+  454  crontab l
+  455  crontab -l
+  456  pwd
+  457  docker run   --name=letsencrypt   --cap-add=NET_ADMIN   -e PUID=1000   -e PGID=1000   -e TZ=Europe/amsterdam   -e URL=socialcoin.westeurope.cloudapp.azure.com   -e SUBDOMAINS=www,   -e VALIDATION=http   -e EMAIL=bosch.peter@icloud.com   -e DHLEVEL=2048   -e ONLY_SUBDOMAINS=false   -e STAGING=false   -p 443:443   -p 80:80    -v /home/boscp08/config:/config   --restart unless-stopped   linuxserver/letsencrypt
+  458  docker system prune -a
+  459  docker run   --name=letsencrypt   --cap-add=NET_ADMIN   -e PUID=1000   -e PGID=1000   -e TZ=Europe/amsterdam   -e URL=socialcoin.westeurope.cloudapp.azure.com   -e SUBDOMAINS=www,   -e VALIDATION=http   -e EMAIL=bosch.peter@icloud.com   -e DHLEVEL=2048   -e ONLY_SUBDOMAINS=false   -e STAGING=false   -p 443:443   -p 80:80    -v /home/boscp08/config:/config   --restart unless-stopped   linuxserver/letsencrypt
+  460  uptime
+  461  sudo reboot
+  462  uptime
+  463  docker run   --name=letsencrypt   --cap-add=NET_ADMIN   -e PUID=1000   -e PGID=1000   -e TZ=Europe/amsterdam   -e URL=socialcoin.westeurope.cloudapp.azure.com   -e SUBDOMAINS=www,   -e VALIDATION=http   -e EMAIL=bosch.peter@icloud.com   -e DHLEVEL=2048   -e ONLY_SUBDOMAINS=false   -e STAGING=false   -p 443:443   -p 80:80    -v /home/boscp08/config:/config   --restart unless-stopped   linuxserver/letsencrypt
+  464  docker system prune -a
+  465  docker run   --name=letsencrypt   --cap-add=NET_ADMIN   -e PUID=1000   -e PGID=1000   -e TZ=Europe/amsterdam   -e URL=socialcoin.westeurope.cloudapp.azure.com   -e SUBDOMAINS=www,   -e VALIDATION=http   -e EMAIL=bosch.peter@icloud.com   -e DHLEVEL=2048   -e ONLY_SUBDOMAINS=false   -e STAGING=false   -p 443:443   -p 80:80    -v /home/boscp08/config:/config   --restart unless-stopped   linuxserver/letsencrypt
+  466  sudo rm -rf /var/lib/docker
+  467  docker system prune -a
+  468  sudo service docker stop
+  469  sudo rm -rf /var/lib/docker
+  470  clear
+  471  docker system prun -a
+  472  docker system prune -a
+  473  sudo systemctl restart docker
+  474  docker system prune -a
+  475  docker run   --name=letsencrypt   --cap-add=NET_ADMIN   -e PUID=1000   -e PGID=1000   -e TZ=Europe/amsterdam   -e URL=socialcoin.westeurope.cloudapp.azure.com   -e SUBDOMAINS=www,   -e VALIDATION=http   -e EMAIL=bosch.peter@icloud.com   -e DHLEVEL=2048   -e ONLY_SUBDOMAINS=false   -e STAGING=false   -p 443:443   -p 80:80    -v /home/boscp08/config:/config   --restart unless-stopped   linuxserver/letsencrypt
+  476  docker run   --name=letsencrypt   --cap-add=NET_ADMIN   -e PUID=1000   -e PGID=1000   -e TZ=Europe/amsterdam   -e URL=socialcoin.westeurope.cloudapp.azure.com     -e VALIDATION=http   -e EMAIL=bosch.peter@icloud.com   -e DHLEVEL=2048   -e ONLY_SUBDOMAINS=false   -e STAGING=false   -p 443:443   -p 80:80    -v /home/boscp08/config:/config   --restart unless-stopped   linuxserver/letsencrypt
+  477  docker container prune
+  478  docker run   --name=letsencrypt   --cap-add=NET_ADMIN   -e PUID=1000   -e PGID=1000   -e TZ=Europe/amsterdam   -e URL=socialcoin.westeurope.cloudapp.azure.com     -e VALIDATION=http   -e EMAIL=bosch.peter@icloud.com   -e DHLEVEL=2048   -e ONLY_SUBDOMAINS=false   -e STAGING=false   -p 443:443   -p 80:80    -v /home/boscp08/config:/config   --restart unless-stopped   linuxserver/letsencrypt
+  479  docker ps
+  480  docker run   --name=letsencrypt   --cap-add=NET_ADMIN   -e PUID=1000   -e PGID=1000   -e TZ=Europe/amsterdam   -e URL=socialcoin.westeurope.cloudapp.azure.com     -e VALIDATION=http   -e EMAIL=bosch.peter@icloud.com   -e DHLEVEL=2048   -e ONLY_SUBDOMAINS=false   -e STAGING=false   -p 443:443   -p 80:80    -v /home/boscp08/config:/config   --restart unless-stopped   linuxserver/letsencrypt
+  481  docker ps -a
+  482  docker start bb
+  483  cd Projects/scratch/virtual-insanity/waardepapieren/
+  484  ls
+  485  docker images
+  486  docker-compose -f docker-compose-travis.yml up
+  487  clear
+  488  . bfg.bash mm 1 socialcoin.westeurope.cloudapp.azure.com
+  489  docker images
+  490  exit
+  491  ls\
+  492  ls
+  493  ls -ltr
+  494  cd config/
+  495  ls
+  496  pwd
+  497  exit
+  498  w
+  499  id
+  500  mkdir socialcoin
+  501  cd socialcoin/
+  502  git clone https://gitlab.com/socialcoin/desktop
+  503  git clone https://gitlab.com/socialcoin/mobile
+  504  git clone https://gitlab.com/socialcoin/socialcoin-api
+  505  node
+  506  sudo bash
+  507  lsb-release
+  508  sudo lsb-release
+  509  uname -a
+  510  lsb_release -a
+  511  sudo apt update
+  512  sudo apt full-upgrade
+  513  curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+  514  sudo apt-get install -y nodejs
+  515  sudo apt-get install gcc g++ make
+  516  curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  517  sudo apt install nodejs
+  518  sudo apt autoremove
+  519  node --version
+  520  npm --version
+  521  sudo apt install mysql-server mysql-client
+  522  nvm use v8.11.3
+  523  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+  524  vi /home/boscp08/.bashrc
+  525  exit
+  526  vi /etc/mysql/my.cnf
+  527  pwd
+  528  cd /etc/mysql/
+  529  ls -l
+  530  cd mysql.conf.d/
+  531  ls 0k
+  532  ls -l
+  533  vi *
+  534  service mysql restart
+  535  pwd
+  536  ls -ltr
+  537  exit
+  538  cls
+  539  clear
+  540  ls -ltr
+  541  docker images
+  542  docker ps
+  543  docker stop bb
+  544  nvm use v8.11.3
+  545  nvm install v8.11.3
+  546  nvm use v8.11.3
+  547  vi .history
+  548  vi .bash_history 
+  549  sudo mysql_secure_installation
+  550  sudo mysql -u root -p
+  551  mysql -u socialcoinAdmin -p
+  552  sudo bash
+  553  pwd
+  554  cd
+  555  ls -ltr
+  556  tar -zxvf 2019-12-13-socialcoin.sql.tgz 
+  557  cd /tmp
+  558  ls -ltr
+  559  mv 2020-01-17.socialcoin.sql.tgz ~
+  560  cd
+  561  ls -ltr
+  562  tar -zxvf 2020-01-17.socialcoin.sql.tgz 
+  563  mysql -u socialcoinAdmin < 2020-01-17.socialcoin.sql -p
+  564  mysql -u socialcoinAdmin < 2020-01-17.socialcoin.sql socialcoin -p 
+  565  sudo mysql -u root < 2020-01-17.socialcoin.sql socialcoin -p 
+  566  pwd
+  567  cd socialcoin/
+  568  ls -l
+  569  cd socialcoin-api/
+  570  vi server/se
+  571  vi server/datasources.json.default 
+  572  vi server/datasources.json
+  573  npm i
+  574  sudo npm install pm2@latest -g
+  575  ndoe .
+  576  npm start
+  577  cd 
+  578  mv /tmp/2020-01-17.security.sql .
+  579  sudo mysql -u root < 2020-01-17.security.sql security -p 
+  580  sudo mysql -u root -p
+  581  sudo mysql -u root < 2020-01-17.security.sql security -p 
+  582  cd socialcoin/socialcoin-api/
+  583  npm start
+  584  vi server/datasources.json§
+  585  vi server/datasources.json
+  586  sudo mysql -u root -p
+  587  npm start
+  588  ifconfig -a|grep 3000
+  589  ifconfig -a
+  590  vi package.json 
+  591  grep -irl dev-socialcoin *
+  592  vi server/config.json
+  593  npm start
+  594  fconfig -a|grep -i listen
+  595  ifconfig -a|grep -i listen
+  596  sudo ifconfig -a|grep -i listen
+  597  sudo ifconfig -a
+  598  netstat -a|grep -i listen
+  599  netstat -a|grep 3000
+  600  npm start
+  601  vi server/datasources.json
+  602  npm start
+  603  vi server/datasources.json
+  604  vi server/config.json
+  605  vi server/datasources.json
+  606  npm start
+  607  vi server/datasources.json
+  608  vi server/config.json
+  609  grep -irl 3000 *
+  610  grep -irl 3000 * \grep -v node_modules
+  611  grep -irl 3000 * |grep -v node_modules
+  612  npm start
+  613  ls -ltr
+  614  ls -l ~
+  615  vi server/datasources.json
+  616  vi ~/socialcoin/socialcoin-api/server/datasources.json
+  617  vi ~/socialcoin/socialcoin-api/server/config.json 
+  618  vi package.json 
+  619  node server/server.js 
+  620  grep -irl swagger *
+  621  grep -irl swagger *|grep -v node_m
+  622  vi package-lock.json
+  623  rm package-lock.json 
+  624  rm -fr node_modules/
+  625  npm i
+  626  npm audit fix
+  627  npm audit -fix
+  628  npm -audit fix
+  629  npm --audit fix
+  630  npm --audit --fix
+  631  npm audit fix
+  632  exit
+  633  cd socialcoin/socialcoin-api/
+  634  npm audit fix
+  635  npm start
+  636  vi node_modules/loopback/lib/server-app.js
+  637  grep -irl includeSubdomain *
+  638  grep -irl includeSubdomain * |grep js
+  639  vi `grep -irl includeSubdomain * |grep js`
+  640  npm start
+  641  cd
+  642  ls -ltr
+  643  mkdir backup
+  644  mv socialcoin.tar.gz backup/
+  645  cd backup/
+  646  tar -zxvf socialcoin.tar.gz 
+  647  ls -ltr
+  648  cd socialcoin/socialcoin-api
+  649  ls -ltr
+  650  cp -fr node_modules ~/socialcoin/socialcoin-api/
+  651  cd ~/socialcoin/socialcoin-api/
+  652  npm start
+  653  rm -fr node_modules
+  654  cd -
+  655  cp -fr node_modules ~/socialcoin/socialcoin-api/
+  656  cd -
+  657  npm start
+  658  vi /home/boscp08/.npm/_logs/2020-01-17T11_06_00_768Z-debug.log
+  659  NODE_ENV=production
+  660  npm start
+  661  NODE_ENV=production node server/server.js 
+  662  rm -fr node_modules/
+  663  npm i
+  664  sudo npm run start
+  665  sudo npm start
+  666  vi server/config.json 
+  667  npm start
+  668  vi server/config.json 
+  669  sudo service nginx stop
+  670  lsof|grep 80
+  671  sudo lsof|grep 80
+  672  sudo lsof|grep '80'
+  673  netstat -a|grep 80
+  674  sudo reboot
+  675  docker system prune -a
+  676  docker ps
+  677  docker ps -a
+  678  docker images
+  679  docker system prune -a
+  680  ls
+  681  cd config
+  682  ls
+  683  cerbot
+  684  cd ..
+  685  pwd
+  686  ls -ltr
+  687  uptime
+  688  cd socialcoin/socialcoin-api/
+  689  npm start
+  690  sudo apt-get install nginx
+  691  cp ~/default /etc/nginx/sites-available/
+  692  sudo cp ~/default /etc/nginx/sites-available/
+  693  vi /etc/nginx/sites-available/default 
+  694  sudo vi /etc/nginx/sites-available/default 
+  695  sudo service nginx restart
+  696  sudo nginx -t
+  697  sudo service nginx start
+  698  curl socialcoin.westeurope.cloudapp.azure.com
+  699  netstat -a|grep 80
+  700  sudo vi /etc/nginx/sites-available/default 
+  701  sudo service nginx restart
+  702  sudo certbot --nginx 
+  703  sudo add-apt-repository ppa:certbot/certbot
+  704  sudo apt install python-certbot-nginx
+  705  sudo certbot --nginx -d socialcoin.westeurope.cloudapp.azure.com
+  706  sudo apt install python-certbot-nginx
+  707  sudo certbot --nginx -d socialcoin.westeurope.cloudapp.azure.com
+  708  sudo service nginx restart
+  709  npm start
+  710  df -k
+  711  history tail
+  712  history tail 100
+  713  history | tail 
+  714  history | tail  50
+  715  history | tail  
+  716  history
+  717  history > theotheu_2020117.txt

@@ -1,0 +1,16 @@
+---
+  - name: "node"
+    shell: >
+        . /home/boscp08/.nvm/nvm.sh && nvm install v8.11.3
+    args:
+      executable: /bin/bash
+      chdir: ""
+      creates: "/home/boscp08/.nvm/versions/v8.11.3"
+    loop:
+      - node
+
+  - name: "use v8.11.3"
+    shell: >
+        . /home/boscp08/.nvm/nvm.sh && nvm use v8.11.3
+    args:
+      executable: /bin/bash

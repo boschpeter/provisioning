@@ -1,0 +1,28 @@
+---
+# This is a sitewide playbook 
+# filename: site.yml
+#boscp08@boscp08-dingo:~/.../julia$ ansible -i hosts dingofarm_workers -m ping
+#ubuntuvbx | SUCCESS => {
+#    "ansible_facts": {
+#        "discovered_interpreter_python": "/usr/bin/python"
+#    }, 
+#    "changed": false, 
+#    "ping": "pong"
+#}
+#ubuntuvmx | SUCCESS => {
+#    "ansible_facts": {
+#        "discovered_interpreter_python": "/usr/bin/python"
+#    }, 
+#    "changed": false, 
+#    "ping": "pong"
+#}
+
+# ansible-galaxy init --init-path roles/ upd
+# essentials_03_code boscp08$ ansible-galaxy init --init-path roles/ upd
+# Role upd was created successfully
+#- include: apt_get_update.yml
+#- include: install_nginx_www_server.yml 
+#- include: install_mysql.yml
+#- include: install_nvm.yml
+- include: install_nodejs_8_11_3.yml
+#- include: clone_socialcoin_api.yml

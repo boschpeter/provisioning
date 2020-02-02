@@ -1,0 +1,14 @@
+# Playbook for webserver Servers
+# filename: install_nginx_www_server.yml
+---
+- hosts: all
+  remote_user: boscp08
+  become: true
+  pre_tasks:
+     - shell: echo 'I":" Beginning to configure web server..'
+  roles:
+     - install_nginx_www_server
+  post_tasks:
+     - shell: echo 'I":" Done configuring nginx web server...'
+
+
