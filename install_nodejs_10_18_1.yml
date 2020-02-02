@@ -5,6 +5,6 @@
   pre_tasks:
      - shell: echo 'I":" Beginning with install nodejs 8_11_3.'
   roles:
-     - install_nodejs_8_11_3
+     - install_nodejs_10_18_1
   post_tasks:
      - shell: echo 'I":" Done install nodejes ..'
