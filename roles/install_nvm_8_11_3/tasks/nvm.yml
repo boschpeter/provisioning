@@ -93,14 +93,32 @@
   
   # In the event there are multiple versions of Node being installed/used/upgraded
   # on the same machine we'll need to alias the default version accordingly
-  - name: Set default version of Node if multiple versions exist
-    shell: source /home/boscp08/.nvm/nvm.sh && bash -ic "nvm alias default {{ nodejs_version }}"
-    when:  "default == True"
-  
-  - name: Run whatever nvm_commands are there
-    shell: source /home/boscp08/.nvm/nvm.sh && bash -ic "{{ item }}"
-    with_items:
-      "{{ nvm_commands }}"
-    when: "nvm_commands | length >= 1"
-  
-  
+
+#
+#
+#  - name: Set default version of Node if multiple versions exist
+#    shell: source /home/boscp08/.nvm/nvm.sh && bash -ic "nvm alias default {{ nodejs_version }}"
+#    when:  "default == True"
+#  
+#  - name: Run whatever nvm_commands are there
+#    shell: source /home/boscp08/.nvm/nvm.sh && bash -ic "{{ item }}"
+#    with_items:
+#      "{{ nvm_commands }}"
+#    when: "nvm_commands | length >= 1"
+#  
+#    - name: "node"
+#    shell: >
+#        . /home/boscp08/.nvm/nvm.sh && nvm install v8.11.3
+#    args:
+#      executable: /bin/bash
+#      chdir: ""
+#      creates: "/home/boscp08/.nvm/versions/v8.11.3"
+#    loop:
+#      - node
+#
+#  - name: "use v8.11.3"
+#    shell: >
+#        . /home/boscp08/.nvm/nvm.sh && nvm use v8.11.3
+#    args:
+#      executable: /bin/bash
+#
