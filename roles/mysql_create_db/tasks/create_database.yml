@@ -1,12 +1,12 @@
 ---
 
-  #- name: python-pymysql
-  #  apt:
-  #    name:
-  #      - python-pymysql
-  #    state: latest
-  #    cache_valid_time: 3600    # update cache if more than an hour old
-  #     
+  - name: python-pymysql
+    apt:
+      name:
+        - python-pymysql
+      state: latest
+      cache_valid_time: 3600    # update cache if more than an hour old
+       
 #
   #- name: Install some common packages
   #  apt:
@@ -21,22 +21,27 @@
     
     # https://serverfault.com/questions/891373/unable-to-create-mysql-database-through-ansible
 
-  - name: Ensure mysql is running and starts on boot
-    service:
-      name: mysql
-      state: started
-      enabled: yes
-    become: yes
+#  - name: Ensure mysql is running and starts on boot
+#    service:
+#      name: mysql
+#      state: started
+#      enabled: yes
+#    become: yes
   
-  - name: Create `/root/.my.cnf`  with root password credentials
-    template:
-      src:  my.cnf.j2
-      dest: /root/.my.cnf
-      owner: root
-      mode: 0600
-    become: yes
-#    notify: Restart MySQL
-
+ 
+# Write password to root home as readable only by root so future mysql
+# operations can function.
+  - name: Write root login credentials
+    copy:
+       dest: /root/.my.cnf
+       owner: root
+       group: root
+       mode: 0600
+       content: |
+           [client]
+           user=root
+           password=Nw2xdirh
+#https://github.com/ansible/ansible/issues/47736
 
   - name: Ensure mysql root password is updated for all root accounts
     mysql_user:
@@ -47,14 +52,8 @@
       priv: '*.*:ALL,GRANT'
       check_implicit_admin: true
     become: yes
-#    notify: Restart MySQL
+    notify: Restart MySQL
   
-
-
-
-
-
-
 
   - name: Create new databases with names 'foo' and 'bar'
     mysql_db:
