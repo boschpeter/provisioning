@@ -21,6 +21,17 @@
         path: "{{ nvm_dir }}"
         state: directory
       when: "nvm_dir != ''"
+
+    - name: Add "unset NPM_CONFIG_PREFIX" .bashrc
+      blockinfile:
+           block: |
+            unset NPM_CONFIG_PREFIX  # nvm is not compatible with the "NPM_CONFIG_PREFIX"
+           insertafter: "# foef"
+           marker_begin: "Installed via {{ role_repo }} START"
+           marker_end: "{{ role_repo }} END"
+           mode: 0644
+           path: "{{ nvm_profile }}"
+           state: present
   
     - name: Install NVM
       shell: "{{ run_command }} https://raw.githubusercontent.com/creationix/nvm/v{{ nvm_version }}/install.sh | NVM_SOURCE={{ nvm_source }} NVM_DIR={{ nvm_dir }} PROFILE={{ nvm_profile }} bash"
@@ -44,16 +55,7 @@
       args:
        executable: /bin/bash
 
-    - name: Add "unset NPM_CONFIG_PREFIX" .bashrc
-      blockinfile:
-           block: |
-            unset NPM_CONFIG_PREFIX  # nvm is not compatible with the "NPM_CONFIG_PREFIX"
-           insertafter: "# foef"
-           marker_begin: "Installed via {{ role_repo }} START"
-           marker_end: "{{ role_repo }} END"
-           mode: 0644
-           path: "{{ nvm_profile }}"
-           state: present
+ 
 
       when: "nvm_install == 'curl' or  nvm_install == 'wget'"
 

@@ -7,14 +7,21 @@
       enabled: yes
     become: yes
   
-  - name: Create new databases with names 'foo' and 'bar'
+#  - name: Create new databases with names 'foo' and 'bar'
+#    mysql_db:
+#      name:
+#        - foo
+#        - bar
+#      state: present    
+#    become: true
+#
+    - name: Create new databases with names 'socialcoin' and 'security'
     mysql_db:
       name:
-        - foo
-        - bar
+        - security
+        - socialcoin
       state: present    
     become: true
-
 
 
 # Restart MySQL
