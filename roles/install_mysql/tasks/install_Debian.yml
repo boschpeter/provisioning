@@ -12,19 +12,56 @@
         - mysql-client
       state: latest
       cache_valid_time: 3600    # update cache if more than an hour old
-#    
-#  - name: mysql-client
-#    apt:
-#      name: "{{ item }}"
-#      state: present
-#      update_cache: True
-#      become: true
-#      with_items:
-#           - mysql-client
-#           - python3-pip
-#           - libmysqlclient-dev
-#           - python3-dev
-#           - python3-mysqldb
-# 
-#           
+
+           
 #
+  - name: python-pymysql
+    apt:
+      name:
+        - python-pymysql
+      state: latest
+      cache_valid_time: 3600    # update cache if more than an hour old
+# rationale 20200202 fatal: [ubuntuvbx2]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}       
+
+
+#
+  #- name: Install some common packages
+  #  apt:
+  #   name: "{{ common_packages }}"
+  #  vars:
+  #   common_packages:
+  #    - python-apt
+  #    - python-pymysql
+  #    - python3-apt
+  #    - python3-pymysql
+  #  become: true
+    
+    # https://serverfault.com/questions/891373/unable-to-create-mysql-database-through-ansible
+
+ 
+# Write password to root home as readable only by root so future mysql
+# operations can function.
+  - name: Write root login credentials
+    copy:
+       dest: /root/.my.cnf
+       owner: root
+       group: root
+       mode: 0600
+       content: |
+           [client]
+           user=root
+           password=Nw2xdirh
+#https://github.com/ansible/ansible/issues/47736
+
+  - name: Ensure mysql root password is updated for all root accounts
+    mysql_user:
+      name: root
+      host: localhost
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+      password: Nw2xdirh
+      priv: '*.*:ALL,GRANT'
+      check_implicit_admin: true
+    become: yes
+    notify: Restart MySQL
+
+    
