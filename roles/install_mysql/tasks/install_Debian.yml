@@ -62,6 +62,6 @@
       priv: '*.*:ALL,GRANT'
       check_implicit_admin: true
     become: yes
-    notify: Restart MySQL
+    #notify: Restart MySQL
 
     

@@ -15,7 +15,7 @@
 #      state: present    
 #    become: true
 #
-    - name: Create new databases with names 'socialcoin' and 'security'
+  - name: Create new databases with names 'socialcoin' and 'security'
     mysql_db:
       name:
         - security
