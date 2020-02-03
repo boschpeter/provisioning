@@ -1,60 +1,12 @@
 ---
 
-  - name: python-pymysql
-    apt:
-      name:
-        - python-pymysql
-      state: latest
-      cache_valid_time: 3600    # update cache if more than an hour old
-       
-#
-  #- name: Install some common packages
-  #  apt:
-  #   name: "{{ common_packages }}"
-  #  vars:
-  #   common_packages:
-  #    - python-apt
-  #    - python-pymysql
-  #    - python3-apt
-  #    - python3-pymysql
-  #  become: true
-    
-    # https://serverfault.com/questions/891373/unable-to-create-mysql-database-through-ansible
-
-#  - name: Ensure mysql is running and starts on boot
-#    service:
-#      name: mysql
-#      state: started
-#      enabled: yes
-#    become: yes
-  
- 
-# Write password to root home as readable only by root so future mysql
-# operations can function.
-  - name: Write root login credentials
-    copy:
-       dest: /root/.my.cnf
-       owner: root
-       group: root
-       mode: 0600
-       content: |
-           [client]
-           user=root
-           password=Nw2xdirh
-#https://github.com/ansible/ansible/issues/47736
-
-  - name: Ensure mysql root password is updated for all root accounts
-    mysql_user:
-      name: root
-      host: localhost
-      login_unix_socket: /var/run/mysqld/mysqld.sock
-      password: Nw2xdirh
-      priv: '*.*:ALL,GRANT'
-      check_implicit_admin: true
+  - name: Ensure mysql is running and starts on boot
+    service:
+      name: mysql
+      state: started
+      enabled: yes
     become: yes
-    notify: Restart MySQL
   
-
   - name: Create new databases with names 'foo' and 'bar'
     mysql_db:
       name:
@@ -64,46 +16,12 @@
     become: true
 
 
-    #https://serverfault.com/questions/891373/unable-to-create-mysql-database-through-ansible
-    #https://www.techrepublic.com/article/how-to-set-change-and-recover-a-mysql-root-password/
 
-
-    # http://www.inanzzz.com/index.php/post/xk3y/setting-up-mysql-root-user-with-ansible-and-vagrant
-
-## Update "root" user password and grant all permissions for all hosts
-#- name: Update "root" user password and grant all permissions for all hosts
-#  mysql_user:
-#    login_user: "{{ mysql.user }}"
-#    login_password: "{{ mysql.old_password }}"
-#    host: "{{ item }}"
-#    check_implicit_admin: yes
-#    name: "{{ mysql.user }}"
-#    password: "{{ mysql.new_password }}"
-#    priv: "*.*:ALL,GRANT"
-#    state: present
-#  with_items:
-#    - "{{ mysql.hosts }}"
-#  tags:
-#    - mysql
-# 
-## Restart MySQL
+# Restart MySQL
 #- name: Restart MySQL
 #  command: /bin/true
 #  notify:
 #    - Restart MySQL
 #  tags:
 #    - mysql
-#
-#
-    #    boscp08@ubuntuVMX:/etc/mysql$ mysql -u root 
-#    ERROR 1698 (28000): Access denied for user 'root'@'localhost'
-#    https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost
 
-#    $ sudo mysql -u root # I had to use "sudo" since is new installation
-#    
-#    mysql> USE mysql;
-#    mysql> UPDATE user SET plugin='Nw2xdirh' WHERE User='root';  kijk uit... 
-#    mysql> FLUSH PRIVILEGES;
-#    mysql> exit;
-#    
-#    $ service mysql restart
