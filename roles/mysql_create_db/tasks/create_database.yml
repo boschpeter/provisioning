@@ -24,6 +24,13 @@
     become: true
 
 
+  - name: Create database user with name 'socialcoinAdmin' and password '12345' with all database privileges
+    mysql_user:
+      name: socialcoinAdmin
+      password: 12345
+      priv: '*.*:ALL'
+      state: present    
+
 # Restart MySQL
 #- name: Restart MySQL
 #  command: /bin/true

@@ -23,21 +23,6 @@
       cache_valid_time: 3600    # update cache if more than an hour old
 # rationale 20200202 fatal: [ubuntuvbx2]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}       
 
-
-#
-  #- name: Install some common packages
-  #  apt:
-  #   name: "{{ common_packages }}"
-  #  vars:
-  #   common_packages:
-  #    - python-apt
-  #    - python-pymysql
-  #    - python3-apt
-  #    - python3-pymysql
-  #  become: true
-    
-    # https://serverfault.com/questions/891373/unable-to-create-mysql-database-through-ansible
-
  
 # Write password to root home as readable only by root so future mysql
 # operations can function.
@@ -64,4 +49,9 @@
     become: yes
     #notify: Restart MySQL
 
-    
+  - name:  Grant access by editing /etc/mysql/mysql.conf.d/mysqld.cnf
+    replace:
+      path: /etc/mysql/mysql.conf.d/mysqld.cnf
+      regexp: 'bind-address'
+      replace: '# bind-address  Ansible Grant access by editing '
+

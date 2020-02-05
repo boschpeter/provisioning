@@ -3,8 +3,8 @@
     "host": "0.0.0.0",
     "port": "3306",
     "database": "socialcoin",
-    "username": "socialcoinAdmin",
-    "password": "Discipl_Discipl",
+    "username": "root",
+    "password": "Nw2xdirh",
     "name": "socialcoinDb",
     "connector": "mysql"
   },
@@ -12,8 +12,8 @@
     "host": "0.0.0.0",
     "port": "3306",
     "database": "security",
-    "username": "socialcoinAdmin",
-    "password": "Discipl_Discipl",
+    "username": "root",
+    "password": "Nw2xdirh",
     "name": "securityDb",
     "connector": "mysql"
   },

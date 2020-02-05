@@ -1,5 +1,7 @@
 # theotheu
-socialcoin-api.  
+socialcoin-api. 
+
+Ansible is een radicaal eenvoudig IT-automatiseringsplatform dat uw applicaties en systemen eenvoudiger inzetbaar maakt. Vermijd het schrijven van scripts of aangepaste code om uw applicaties te implementeren en bij te werken - automatiseer in een taal die gewoon Engels benadert, met behulp van SSH, zonder agenten om op externe systemen te installeren
 
 https://github.com/theotheu/
 

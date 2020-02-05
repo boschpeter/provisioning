@@ -1,0 +1,12 @@
+# Playbook for applicatie configuratie
+# filename: config_socialcoin_api.yml 
+---
+    - hosts: all
+      remote_user: boscp08
+      become: true
+      pre_tasks:
+         - shell: echo 'I":" config_socialcoin_api '
+      roles:
+         - config_socialcoin_api
+      post_tasks:
+         - shell: echo 'I":" Doneconfig_socialcoin_api ..'
