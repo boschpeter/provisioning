@@ -1,2 +1,3 @@
 ---
-# tasks file for config_socialcoin_api
+# This is main tasks file for config socialcoin api role
+- include: configure.yml
