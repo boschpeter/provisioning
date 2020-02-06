@@ -4,7 +4,7 @@
     "port": "3306",
     "database": "socialcoin",
     "username": "root",
-    "password": "Nw2xdirh",
+    "password": "Discipl_Socialcoin2020",
     "name": "socialcoinDb",
     "connector": "mysql"
   },
@@ -13,7 +13,7 @@
     "port": "3306",
     "database": "security",
     "username": "root",
-    "password": "Nw2xdirh",
+    "password": "Discipl_Socialcoin2020",
     "name": "securityDb",
     "connector": "mysql"
   },

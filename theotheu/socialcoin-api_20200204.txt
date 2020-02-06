@@ -113,3 +113,19 @@ socialcoin-api.westeurope.cloudapp.azure.com | SUCCESS => {
     "ping": "pong"
 }
 boscp08s-Mac-mini:theotheu boscp08$ 
+
+
+az vm open-port --port 80 \
+   --resource-group SocialcoinProxmoxGroup \
+   --name  Socialcoin_api_80
+
+az vm open-port --port 443 \
+  --resource-group SocialcoinProxmoxGroup \
+  --name  Socialcoin_api_443 \
+  --priority 1010
+
+
+az vm open-port --port 8006 \
+   --resource-group SocialcoinProxmoxGroup \
+   --name Socialcoin_proxmox \
+   --priority 1030

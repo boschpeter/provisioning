@@ -35,7 +35,7 @@
        content: |
            [client]
            user=root
-           password=Nw2xdirh
+           password=Discipl_Socialcoin2020
 #https://github.com/ansible/ansible/issues/47736
 
   - name: Ensure mysql root password is updated for all root accounts
@@ -43,7 +43,7 @@
       name: root
       host: localhost
       login_unix_socket: /var/run/mysqld/mysqld.sock
-      password: Nw2xdirh
+      password: Discipl_Socialcoin2020
       priv: '*.*:ALL,GRANT'
       check_implicit_admin: true
     become: yes
