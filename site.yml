@@ -42,3 +42,4 @@
 # ssh  boscp08@socialcoin.westeurope.cloudapp.azure.com
 # ssh  theotheu@socialcoin-api.westeurope.cloudapp.azure.com
 # https://help.cloud66.com/maestro/how-to-guides/databases/shells/uninstall-mysql.html
+# sudo certbot --nginx -d socialcoin-api.westeurope.cloudapp.azure.com 	2
