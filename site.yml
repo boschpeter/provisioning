@@ -39,3 +39,6 @@
 #6.13.4
 #boscp08@ubuntuVMX:~$ nvm --version
 #0.33.0
+# ssh  boscp08@socialcoin.westeurope.cloudapp.azure.com
+# ssh  theotheu@socialcoin-api.westeurope.cloudapp.azure.com
+# https://help.cloud66.com/maestro/how-to-guides/databases/shells/uninstall-mysql.html
