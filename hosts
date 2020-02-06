@@ -22,8 +22,8 @@
 [dingofarm_workers]
 #10.248.78.107 ansible_user=boscp08 #ubuntuvbx
 #10.248.78.9 ansible_user=boscp08  #ubuntuvbx2
-ubuntuvbx ansible_user=boscp08 #10.248.78.107
-ubuntuvmx ansible_user=boscp08  #10.248.78.9
-theotheu ansible_user=boscp08 #192.168.2.6
+#ubuntuvbx ansible_user=boscp08 #10.248.78.107
+#ubuntuvmx ansible_user=boscp08  #10.248.78.9
+socialcoin-api.westeurope.cloudapp.azure.com  ansible_user=theotheu
 
 
