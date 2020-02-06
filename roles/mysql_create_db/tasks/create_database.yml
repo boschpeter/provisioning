@@ -27,7 +27,7 @@
   - name: Create database user with name 'socialcoinAdmin' and password '12345' with all database privileges
     mysql_user:
       name: socialcoinAdmin
-      password: 12345
+      password: Discipl_Socialcoin2020
       priv: '*.*:ALL'
       state: present    
 

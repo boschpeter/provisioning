@@ -68,13 +68,13 @@ server {
 }
 
 server {
-    if ($host = socialcoin.westeurope.cloudapp.azure.com) {
+    if ($host = socialcoin-api.westeurope.cloudapp.azure.com) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
     listen 80 default_server;
     listen [::]:80 default_server;
-    server_name socialcoin.westeurope.cloudapp.azure.com;
+    server_name socialcoin-api.westeurope.cloudapp.azure.com;
     return 404; # managed by Certbot
 
 
