@@ -15,5 +15,5 @@
 - name: Git Clone github Repo command
   command:  git clone https://github.com/boschpeter/socialcoin-api.git
   args:
-     chdir:  /home/boscp08/
+     chdir:  {{ ansible_user_dir }}
 
