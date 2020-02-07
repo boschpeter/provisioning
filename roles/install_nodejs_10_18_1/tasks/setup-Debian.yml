@@ -27,13 +27,10 @@
     name: "nodejs={{ nodejs_version|regex_replace('x', '') }}*"
     state: present
 
-- name: install NPM
-         shell: npm i
-         args:
-           chdir: /home/boscp08
+# https://www.edureka.co/community/56168/ansible-playbook-install-and-configure-nginx-nodejs-npm-pm2
 
-    - name: Install PM2
-      npm:
-        name: pm2
-        global: yes
+- name: Install PM2  sudo npm install pm2latest -g
+  npm:
+    name: pm2
+    global: yes
 
