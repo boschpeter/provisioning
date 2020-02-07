@@ -16,17 +16,3 @@
   args:
      chdir:  /home/boscp08/Projects/scratch/virtual-insanity
 
-#- name: Add a customized datasources.json
-#  shell: curl -o socialcoin_api_server_datasources.json https://raw.githubusercontent.com/boschpeter/theotheu/master/theotheu/socialcoin_api_server_datasources.json
-#  args:
-#   warn: no 
-
-#- name: Add a customized config.json
-#  shell: curl -o socialcoin_api_server_config.json  https://raw.githubusercontent.com/boschpeter/theotheu/master/theotheu/socialcoin_api_server_config.json
-#  args:
-#   warn: no 
-
-#- name: Add a customized middleware.json
-#  shell: curl -o socialcoin_api_server_middleware.json https://raw.githubusercontent.com/boschpeter/theotheu/master/theotheu/socialcoin_api_server_middleware.json
-#  args: 
-#     warn: no 
