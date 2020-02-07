@@ -26,3 +26,14 @@
   apt:
     name: "nodejs={{ nodejs_version|regex_replace('x', '') }}*"
     state: present
+
+- name: install NPM
+         shell: npm i
+         args:
+           chdir: /home/boscp08
+
+    - name: Install PM2
+      npm:
+        name: pm2
+        global: yes
+
