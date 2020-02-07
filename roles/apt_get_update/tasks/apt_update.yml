@@ -7,7 +7,6 @@
 - name: Install packages
   apt:
     name:
-    - git
     - net-tools
     - curl
     state: latest
