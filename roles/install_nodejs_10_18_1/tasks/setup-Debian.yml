@@ -34,3 +34,8 @@
     name: pm2
     global: yes
 
+- name: npm install -g loopback-cli 
+  become: true
+  shell: npm install -g loopback-cli 
+  args:
+    chdir: /home/boscp08/Projects/scratch/virtual-insanity/socialcoin-api
