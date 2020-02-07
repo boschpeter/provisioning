@@ -2,7 +2,7 @@
   "restApiRoot": "/api",
   "host": "0:0:0:0",
   "port": 3000,
-  "resetHost": "socialcoin-api.westeurope.cloudapp.azure.com",
+  "resetHost": "localhost",
   "resetPort": 80,
   "remoting": {
     "errorHandler": {

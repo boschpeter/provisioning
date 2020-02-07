@@ -1,88 +1,74 @@
-server {
-        index index.html index.htm index.nginx-debian.html;
+\upstream desktop {
+	server 127.0.0.1:4200;
+}
 
-        server_name _;
+upstream mobile {
+	server 127.0.0.1:4201;
+}
 
-        location / {
-                try_files $uri $uri/ =404;
-                proxy_pass http://127.0.0.1:3000;
-                proxy_http_version 1.1;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection 'upgrade';
-                proxy_set_header Host $host;
-                proxy_set_header X-myPony 'bla';
-                proxy_cache_bypass $http_upgrade;
-
-                proxy_cache_bypass $http_upgrade;
-
-                proxy_connect_timeout 7d;
-                proxy_send_timeout 7d;
-                proxy_read_timeout 7d;
-
-                proxy_set_header X-Real-IP         $remote_addr;
-                proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
-                proxy_set_header X-Forwarded-Proto $scheme;
-                proxy_set_header X-Forwarded-Port  $server_port;
-
-        }
-
-        location /api {
-                proxy_pass http://127.0.0.1:3000/api;
-        }
-        location /explorer {
-                proxy_pass http://127.0.0.1:3000/explorer;
-        }
-        location /socket.io/ {
-                proxy_pass http://127.0.0.1:3000/socket.io/;
-                proxy_pass_request_headers on;
-                proxy_http_version 1.1;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection "upgrade";
-
-               proxy_connect_timeout 7d;
-               proxy_send_timeout 7d;
-               proxy_read_timeout 77d;
-               keepalive_timeout 1d;
-               proxy_buffers 8 32k;
-               proxy_buffer_size 64k;
-               include         uwsgi_params;
-
-                proxy_set_header X-Real-IP         $remote_addr;
-                proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
-                proxy_set_header X-Forwarded-Proto $scheme;
-                proxy_set_header X-Forwarded-Port  $server_port;
-                proxy_redirect off;
-        }
-
-    listen [::]:443 ssl ipv6only=on; # managed by Certbot
-    listen 443 ssl; # managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/socialcoin.westeurope.cloudapp.azure.com/fullchain.pem; # managed by Certbot
-    ssl_certificate_key /etc/letsencrypt/live/socialcoin.westeurope.cloudapp.azure.com/privkey.pem; # managed by Certbot
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
-    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
-
-        proxy_set_header    Host             $host;
-          proxy_set_header    X-Real-IP        $remote_addr;
-          proxy_set_header    X-Forwarded-For  $proxy_add_x_forwarded_for;
-
+upstream api {
+	localhost:3000;
 }
 
 server {
-    if ($host = socialcoin-api.westeurope.cloudapp.azure.com) {
+    if ($host = localhost) {
         return 301 https://$host$request_uri;
     } # managed by Certbot
 
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    server_name socialcoin-api.westeurope.cloudapp.azure.com;
-    return 404; # managed by Certbot
+
+	listen 0.0.0.0:80;
+	server_name localhost;
+	server_tokens off;
+	#return 301 https://$host$request_uri;
 
 
 }
 
-set_real_ip_from  127.0.0.1;
-set_real_ip_from  192.168.1.0/24;
-set_real_ip_from  192.168.2.1;
-#set_real_ip_from  2001:0db8::/32;
-real_ip_recursive on;
-real_ip_header X-Real-IP;
+
+server {
+
+	listen [::]:443 ssl ipv6only=on;
+	listen 443 ssl;
+
+	server_name socialcoin.westeurope.cloudapp.azure.com;
+
+	location /desktop {
+
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header Host $http_host;
+		proxy_set_header X-NginX-Proxy true;
+		proxy_set_header X-Ssl on;
+
+		proxy_pass http://desktop;
+		proxy_redirect off;
+	}
+
+	location /mobile {
+
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header Host $http_host;
+		proxy_set_header X-NginX-Proxy true;
+		proxy_set_header X-Ssl on;
+
+		proxy_pass http://mobile;
+		proxy_redirect off;
+	}
+
+	location /api {
+
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header Host $http_host;
+		proxy_set_header X-NginX-Proxy true;
+		proxy_set_header X-Ssl on;
+
+		proxy_pass http://api;
+		proxy_redirect off;
+	}
+
+
+ #   ssl_certificate /etc/letsencrypt/live/socialcoin.westeurope.cloudapp.azure.com/fullchain.pem; # managed by Certbot
+ #   ssl_certificate_key /etc/letsencrypt/live/socialcoin.westeurope.cloudapp.azure.com/privkey.pem; # managed by Certbot
+}

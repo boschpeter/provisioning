@@ -3,8 +3,8 @@
     "host": "0.0.0.0",
     "port": "3306",
     "database": "socialcoin",
-    "username": "theotheu",
-    "password": "Discipl_Socialcoin2020",
+    "username": "boscp08",
+    "password": "Nw2xdirh",
     "name": "socialcoinDb",
     "connector": "mysql"
   },
@@ -12,8 +12,8 @@
     "host": "0.0.0.0",
     "port": "3306",
     "database": "security",
-    "username": "theotheu",
-    "password": "Discipl_Socialcoin2020",
+    "username": "boscp08",
+    "password": "Nw2xdirh",
     "name": "securityDb",
     "connector": "mysql"
   },

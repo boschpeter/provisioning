@@ -22,7 +22,7 @@ Are you sure you want to perform this operation? (y/n): y
 
 az group create --name SocialcoinProxmoxGroup --location westeurope
 
-az vm create --resource-group SocialcoinProxmoxGroup  --name socialcoin_api_VM --image UbuntuLTS --admin-username theotheu --admin-password D_Stmcoin2020 --generate-ssh-keys 
+az vm create --resource-group SocialcoinProxmoxGroup  --name socialcoin_api_VM --image UbuntuLTS --admin-username tt --admin-password D_Stmcoin2020 --generate-ssh-keys 
 
 
 
@@ -32,7 +32,7 @@ het maakt niet uit of het op een lokale machine draait of in een cloud.
 
 idd  even zien of er door ansible-methode verschillen zijn ontstaan.   Handmatig vs ansible test
 
-boscp08@DisciplVM:~$ az vm create --resource-group SocialcoinProxmoxGroup  --name socialcoin_api_VM --image UbuntuLTS --admin-username theotheu --admin-password Discipl_Socialcoin2020 --generate-ssh-keys
+boscp08@DisciplVM:~$ az vm create --resource-group SocialcoinProxmoxGroup  --name socialcoin_api_VM --image UbuntuLTS --admin-username tt --admin-password D_S --generate-ssh-keys
 {
   "fqdns": "",
   "id": "/subscriptions/cfcb03ea-255b-42f8-beca-2d4ac30779bb/resourceGroups/SocialcoinProxmoxGroup/providers/Microsoft.Compute/virtualMachines/socialcoin_api_VM",
