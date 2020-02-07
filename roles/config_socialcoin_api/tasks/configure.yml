@@ -1,7 +1,7 @@
 ---
 
  - name: Edit ~/socialcoin/socialcoin-api/server/datasources.json and paste
-   copy: src=socialcoin_api_server_config.json dest=/home/boscp08/Projects/scratch/virtual-insanity/socialcoin-api/server/datasources.json
+   copy: src=socialcoin_api_server_datasources.json dest=/home/boscp08/Projects/scratch/virtual-insanity/socialcoin-api/server/datasources.json
     
  - name: Edit ~/socialcoin/socialcoin-api/server/config.json and paste
    copy: src=socialcoin_api_server_config.json dest=/home/boscp08/Projects/scratch/virtual-insanity/socialcoin-api/server/config.json
