@@ -38,4 +38,4 @@
   become: true
   shell: npm install -g loopback-cli 
   args:
-    chdir: /home/boscp08/Projects/scratch/virtual-insanity/socialcoin-api
+    chdir: /home/boscp08/socialcoin-api
