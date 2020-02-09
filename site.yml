@@ -22,13 +22,13 @@
 # Role upd was created successfully
 # cmd= ansible-playbook site.yml -i hosts -k -K
 - include: apt_get_update.yml
-- include: install_nodejs_10_18_1.yml
-- include: install_nvm_8_11_3.yml
 - include: clone_socialcoin_api.yml
-- include: install_mysql.yml
-- include: mysql_create_db.yml
-- include: mysql_import_data.yml
-- include: config_socialcoin_api.yml
+#- include: install_nodejs_10_18_1.yml
+#- include: install_nvm_8_11_3.yml
+#- include: install_mysql.yml
+#- include: mysql_create_db.yml
+#- include: mysql_import_data.yml
+#- include: config_socialcoin_api.yml
 # include: install_nginx_www_server.yml 
  
 
