@@ -1,16 +1,6 @@
 ---
-  - name: Remove directory /home/boscp08/socialcoin-api/server  rm -rf /home/boscp08/socialcoin-api/node-modules
-    file:
-       path: /home/boscp08/socialcoin-api/node-modules
-       state: absent
- 
-  - name: This npm i command will change the working directory to /home/boscp08/socialcoin-api/ /.
+      
+  - name: nohup npm start  http://localhost:3000 hope the run wil be okay
     shell:
-       cmd: npm i
-       chdir: /home/boscp08/socialcoin-api/    
-       
-       
-  - name: This npm i command will change the working directory to /home/boscp08/socialcoin-api/ /.
-    shell:
-       cmd: npm start 
+       cmd: nohup npm start   </dev/null >/dev/null 2>&1 &
        chdir: /home/boscp08/socialcoin-api/    
