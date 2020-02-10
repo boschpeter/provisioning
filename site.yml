@@ -16,6 +16,7 @@
 #    "changed": false, 
 #    "ping": "pong"
 #}
+# ansible -i hosts dingofarm_workers -m ping
 # ansible -i hosts dingofarm_workers -m setup | grep user
 # ansible-galaxy init --init-path roles/ upd
 # essentials_03_code boscp08$ ansible-galaxy init --init-path roles/ upd
