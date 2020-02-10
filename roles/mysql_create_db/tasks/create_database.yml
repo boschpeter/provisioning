@@ -7,14 +7,6 @@
       enabled: yes
     become: yes
   
-#  - name: Create new databases with names 'foo' and 'bar'
-#    mysql_db:
-#      name:
-#        - foo
-#        - bar
-#      state: present    
-#    become: true
-#
   - name: Create new databases with names 'socialcoin' and 'security'
     mysql_db:
       name:
@@ -24,18 +16,18 @@
     become: true
 
 
-  - name: Create database user with name 'socialcoinAdmin' and password '12345' with all database privileges
+  - name: Create database user socialcoinAdmin with name 'socialcoinAdmin' and password '12345' with all database privileges
     mysql_user:
       name: socialcoinAdmin
       password: Discipl_Socialcoin2020
       priv: '*.*:ALL'
       state: present    
 
-# Restart MySQL
-#- name: Restart MySQL
-#  command: /bin/true
-#  notify:
-#    - Restart MySQL
-#  tags:
-#    - mysql
+  - name: Create database user theotheu with name 'socialcoinAdmin' and password '12345' with all database privileges
+    mysql_user:
+      name: theotheu
+      password: theotheu
+      priv: '*.*:ALL,GRANT'
+      state: present        
+
 
