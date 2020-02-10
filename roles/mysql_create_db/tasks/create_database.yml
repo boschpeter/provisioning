@@ -25,7 +25,7 @@
 
 # Write password to root home as readable only by root so future mysql
 # operations can function.
-  - name: Write root login credentials
+  -c name: Write root login credentials
     copy:
        dest: /root/.my.cnf
        owner: root
