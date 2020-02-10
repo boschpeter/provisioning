@@ -1,0 +1,12 @@
+# Playbook for npm start
+# filename: magic.yml 
+---
+    - hosts: all
+      remote_user: boscp08
+      become: true
+      pre_tasks:
+         - shell: echo 'I":" Beginning with magic '
+      roles:
+         - magic
+      post_tasks:
+         - shell: echo 'I":" hope the run will be okay  '

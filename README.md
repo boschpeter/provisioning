@@ -8,7 +8,7 @@ https://github.com/theotheu/
 
 Provisioning with Ansibles for local test purposes.
 If you want to test local, start with a virtual machine. Then continue with ansible.
-It is tested on Ubuntu 18.04.
+It is tested on Ubuntu 19.10.
 
 
 # Ansible
