@@ -7,20 +7,7 @@
       enabled: yes
     become: yes
   
-  - name: python-pymysql
-    apt:
-      name:
-        - python-pymysql
-      state: latest
-      cache_valid_time: 3600    # update cache if more than an hour old
-# rationale 20200202 fatal: [ubuntuvbx2]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}       
-
-  - name: Determine required MySQL Python libraries.
-    set_fact:
-      deb_mysql_python_package: "{% if 'python3' in ansible_python_interpreter|default('') %}python3-mysqldb{% else %}python-mysqldb{% endif %}"
-
-  - name: Ensure MySQL Python libraries are installed.
-    apt: "name={{ deb_mysql_python_package }} state=present"
+ 
 
 
 # Write password to root home as readable only by root so future mysql
