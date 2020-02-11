@@ -24,7 +24,7 @@
            password=Nw2xdirh
 #https://github.com/ansible/ansible/issues/47736
 
-  - name: Ensure mysql root password is updated for all root accounts
+  - name: Ensure mysql root password is updated for all root accounts 
     mysql_user:
       name: root
       host: localhost
