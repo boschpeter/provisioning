@@ -26,6 +26,7 @@ echo
 echo "TODO: BEGIN Checking out development branch. Change this for prioduction!!!"
 echo
 git fetch --all && git reset --hard && git pull origin develop
+git branch develop
 git checkout develop
 echo "localhost" >> ~/code/provisioning/ansible/hosts
 echo ">>>>>"
