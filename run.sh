@@ -30,7 +30,7 @@ git branch develop
 git checkout develop
 echo "localhost" >> ~/code/provisioning/ansible/hosts
 echo ">>>>>"
-cat ~/code/provisioning/ansible/hosts
+echo "Working directory `pwd`'"
 echo "<<<<<"
 echo
 echo "TODO: END Checking out development branch. Change this for prioduction!!!"
