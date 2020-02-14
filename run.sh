@@ -16,20 +16,22 @@ cd ~
 mkdir -p code
 cd code
 git clone https://github.com/theotheu/provisioning.git
-git checkout develop
-
-echo
-echo "TODO: BEGIN Checking out development branch. Change this for prioduction!!!"
-echo
-echo "localhost" >> ~/code/provisioning/ansible/hosts
-echo
-echo "TODO: END Checking out development branch. Change this for prioduction!!!"
-echo
 
 # just to make sure that latest commits are used
 cd provisioning
 git fetch --all && git reset --hard && git pull origin master
 cd ansible
+
+echo
+echo "TODO: BEGIN Checking out development branch. Change this for prioduction!!!"
+echo
+
+git checkout develop
+echo "localhost" >> ~/code/provisioning/ansible/hosts
+
+echo
+echo "TODO: END Checking out development branch. Change this for prioduction!!!"
+echo
 
 # Issue with setting locales
 # @see issue https://github.com/ansible/ansible/issues/10698 
