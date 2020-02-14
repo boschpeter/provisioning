@@ -6,7 +6,9 @@
 
 git clone https://github.com/boschpeter/theotheu
 
-cd theotheu
+cd ~theotheu
+
+echo "Here I am `pwd`"
 
 echo "localhost" >> hosts
 
