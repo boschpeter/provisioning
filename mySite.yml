@@ -1,18 +1,10 @@
----
+- hosts: 127.0.0.1
+  connection: local
+  become: true
+  become_user: root
 
-- hosts: all
-  sudo: yes
-  remote_user: root
-  gather_facts: no
-  apt:
-     upgrade: yes
-     update_cache: yes
-     cache_valid_time: 86400 #One day
-  pre_tasks:
-    - name: 'install python2 and aptitude'
-      raw: sudo apt-get -y install python-simplejson aptitude
-  roles:
- #   - common
- #   - users
- #   - hardening
-
+#  roles:
+#    - common
+#    - unattended-upgrades
+#    - users
+#    - hardening
