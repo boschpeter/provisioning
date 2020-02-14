@@ -15,7 +15,7 @@ sudo apt-get -y install ansible
 cd ~
 mkdir -p code
 cd code
-git clone https://github.com/theotheu/provisioning.git
+git clone https://github.com/boschpeter/provisioning.git
 
 # just to make sure that latest commits are used
 cd provisioning
