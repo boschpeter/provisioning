@@ -1,3 +1,0 @@
----
- # tasks file for mysql_import_data
- - include: import_data.yml

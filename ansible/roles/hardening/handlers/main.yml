@@ -1,0 +1,20 @@
+---
+
+- name: restart ssh
+  action: 
+    service name=ssh 
+    state=restarted
+
+- name: restart fail2ban
+  service: 
+    name=fail2ban 
+    state=restarted
+
+- name: reload fail2ban
+  service: 
+    name=fail2ban 
+    state=reloaded
+
+# Handlers for iptables-persistent
+#- name: restart iptables-persistent
+#  service: name=iptables-persistent state=restarted    

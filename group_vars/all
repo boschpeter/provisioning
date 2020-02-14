@@ -1,2 +1,0 @@
-mysql_bind:  "{{ ansible_eth0.ipv4.address }}"
-ubuntu_user: boscp08

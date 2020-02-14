@@ -1,3 +1,0 @@
----
-# tasks file for upd
- - include: apt_update.yml

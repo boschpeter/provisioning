@@ -1,6 +1,0 @@
----
-# defaults file for mysql_create_db
-mysql:
-    root_db_password: REDACTED
-    hosts:
-      - localhost

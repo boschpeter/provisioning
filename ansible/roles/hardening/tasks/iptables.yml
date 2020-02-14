@@ -1,0 +1,78 @@
+---
+
+- name:
+  apt:
+    name=iptables-persistent
+    state=present
+
+- name: Copy iptables rules with minimal protection
+  template: 
+    src=iptables_minimal.j2 
+    dest=/root/iptables.minimal
+    mode=744
+
+- name: Copy iptables rules with strict protection
+  template: 
+    src=iptables_strict.j2 
+    dest=/root/iptables.strict
+    mode=744
+
+- name: Make sure required directories exist
+  file: 
+    path=/etc/network/if-pre-up.d 
+    state=directory    
+
+- name: Make sure required directories exist
+  file: 
+    path=/etc/network/if-pre-down.d 
+    state=directory    
+
+- name: Make sure required directories exist
+  file: 
+    path=/etc/network/if-post-down.d 
+    state=directory    
+
+- name: Make sure required directories exist
+  file: 
+    path=/etc/iptables
+    state=directory    
+
+
+- name: Copy iptables rules with default protection
+  template: 
+    src=iptables_default.j2 
+    dest=/etc/network/iptables.up.rules
+    
+- name: Copy predefined iptables rules
+  template: 
+    src=iptables_strict_rules.j2 
+    dest=/etc/iptables.rules
+    mode=744
+
+- name: Copy if-pre-up.d
+  template: 
+    src=if-pre-up-d.j2 
+    dest=/etc/network/if-pre-up.d/iptables
+    mode=744
+
+- name: Copy if-post-down.d
+  template: 
+    src=if-post-down-d.j2 
+    dest=/etc/network/if-post-down.d/iptables
+    mode=744
+        
+- name: Apply strict iptables rules
+  command: /root/iptables.strict
+
+- name: Save rules for reboot
+  shell: 'iptables-save > /etc/iptables/rules.v4'  
+
+- name: Load rules at startup
+  shell: 'iptables-save > /etc/iptables/rules.v4'  
+  
+- name: Load rules at startup
+  template: 
+    src=restore-iptables-at-startup.j2 
+    dest=/etc/rc.local 
+    mode=766
+        
