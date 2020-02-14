@@ -28,7 +28,9 @@ echo
 
 git checkout develop
 echo "localhost" >> ~/code/provisioning/ansible/hosts
-
+echo ">>>>>v"
+cat ~/code/provisioning/ansible/hosts
+echo "<<<<<"
 echo
 echo "TODO: END Checking out development branch. Change this for prioduction!!!"
 echo
