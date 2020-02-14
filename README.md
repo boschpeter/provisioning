@@ -11,13 +11,13 @@ See README in vagrant directory and ansible directory.
 
 FOR DEVELOPMENT, USE
 
-`wget -qO- https://raw.githubusercontent.com/boschpeter/theotheu/develop/run.sh | bash`
+`wget -qO- https://raw.githubusercontent.com/boschpeter/provisioning/develop/run.sh | bash`
 
 
 
 FOR PRODUCTION, USE
 
-`wget -qO- https://raw.githubusercontent.com/theotheu/provisioning/master/run.sh | bash`
+`wget -qO- https://raw.githubusercontent.com/boschpeter/provisioning/master/run.sh | bash`
 
 
 It is tested on Ubuntu 18.04. 
@@ -25,3 +25,5 @@ It is tested on Ubuntu 18.04.
 If you need 16.04 or 14.04, then checkout the branch 16.04.
 
 Iptables is applied in strict mode. See `/root/iptables.strict`. Use `/root/iptables.minial` for unsecure operations (not recommended).
+
+Discipl_Socialcoin#2020
