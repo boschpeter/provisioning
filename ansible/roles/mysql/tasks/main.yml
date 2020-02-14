@@ -27,3 +27,7 @@
 - include: databases.yml
 - include: users.yml
 - include: replication.yml
+
+# Impport data
+- include: create-database.yml
+- include: import-data.yml
