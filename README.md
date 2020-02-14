@@ -25,5 +25,3 @@ It is tested on Ubuntu 18.04.
 If you need 16.04 or 14.04, then checkout the branch 16.04.
 
 Iptables is applied in strict mode. See `/root/iptables.strict`. Use `/root/iptables.minial` for unsecure operations (not recommended).
-
-Discipl_Socialcoin#2020
