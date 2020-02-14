@@ -4,9 +4,9 @@
 # Run this with wget -qO- https://raw.githubusercontent.com/boschpeter/theotheu/master/myrun.sh | bash
 #
 
-git clone https://github.com/boschpeter/theotheu
+git clone https://github.com/boschpeter/theotheu provisioning
 
-cd 
+cd provisioning
 
 echo "Here I am `pwd`"
 
