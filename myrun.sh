@@ -1,3 +1,7 @@
 #!/bin/bash
-echo "Tada!"
-echo
+
+git clone https://github.com/boschpeter/theotheu
+
+echo "localhost" >> hosts
+
+ansible-playbook -i hosts site.yml
