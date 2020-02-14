@@ -9,6 +9,13 @@ See README in vagrant directory and ansible directory.
 
 ## One-liner for ordinary user to run on new machine. The script asks for a root password. 
 
+FOR DEVELOPMENT, USE
+
+`wget -qO- https://raw.githubusercontent.com/boschpeter/theotheu/develop/run.sh | bash`
+
+
+
+FOR PRODUCTION, USE
 
 `wget -qO- https://raw.githubusercontent.com/theotheu/provisioning/master/run.sh | bash`
 
