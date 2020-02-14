@@ -6,6 +6,8 @@
 
 git clone https://github.com/boschpeter/theotheu
 
+cd theotheu
+
 echo "localhost" >> hosts
 
 ansible-playbook -i hosts site.yml
