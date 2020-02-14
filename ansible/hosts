@@ -9,3 +9,5 @@ localhost:2222
 
 [aws]
 #server8.tezzt.nl
+
+[test-deployment]
