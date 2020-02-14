@@ -21,7 +21,7 @@ git checkout develop
 echo
 echo "TODO: Checking out development branch. Change this for prioduction!!!"
 echo
-echo "localhost" >> hosts
+echo "localhost" >> code/provisioning/ansible/hosts
 # just to make sure that latest commits are used
 cd provisioning
 git fetch --all && git reset --hard && git pull origin master
