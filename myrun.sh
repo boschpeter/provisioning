@@ -12,4 +12,4 @@ echo "Here I am `pwd`"
 
 echo "localhost" >> hosts
 
-ansible-playbook -i hosts site.yml
+ansible-playbook -i hosts mySite.yml
