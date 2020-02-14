@@ -16,6 +16,10 @@ cd ~
 mkdir -p code
 cd code
 git clone https://github.com/theotheu/provisioning.git
+git checkout develop
+echo
+echo "Checkign out development branch. Change this for prioduction!"
+echo
 # just to make sure that latest commits are used
 cd provisioning
 git fetch --all && git reset --hard && git pull origin master
