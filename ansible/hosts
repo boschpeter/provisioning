@@ -10,5 +10,6 @@ localhost:2222
 [aws]
 #server8.tezzt.nl
 
-[test-deployment]
-localhost
+
+[dingofarm_workers]
+localhost  ansible_user=boscp08

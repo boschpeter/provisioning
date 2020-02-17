@@ -1,0 +1,2 @@
+[dingofarm_workers]
+localhost  ansible_user=boscp08
