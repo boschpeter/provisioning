@@ -1,28 +1,24 @@
 #####################
 # Passwords
-#
 # Make sure that Passlib is installed with `pip install passlib`
 # Run: `python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())"`
 # @see http://docs.ansible.com/ansible/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module
-#
 #####################
+# The name of the OS user (johndoe, ubuntu, vagrant)
+#username: vagrant
+#password: '$6$rounds=100000$vcEVMb1oJOPHy6ui$PTnvifu.xDG8cez.FBusjI18nwe9J/Hyms/IRgXSlsJwyGgSkEHEKRs658A8Lb7DzT6fSVF6Hh4aLolauXWm81'
+#webdev_password: '$6$rounds=100000$vcEVMb1oJOPHy6ui$PTnvifu.xDG8cez.FBusjI18nwe9J/Hyms/IRgXSlsJwyGgSkEHEKRs658A8Lb7DzT6fSVF6Hh4aLolauXWm81'
 
 # The name of the OS user (johndoe, ubuntu, vagrant)
-username: vagrant
-password: '$6$rounds=100000$vcEVMb1oJOPHy6ui$PTnvifu.xDG8cez.FBusjI18nwe9J/Hyms/IRgXSlsJwyGgSkEHEKRs658A8Lb7DzT6fSVF6Hh4aLolauXWm81'
-webdev_password: '$6$rounds=100000$vcEVMb1oJOPHy6ui$PTnvifu.xDG8cez.FBusjI18nwe9J/Hyms/IRgXSlsJwyGgSkEHEKRs658A8Lb7DzT6fSVF6Hh4aLolauXWm81'
-
-mysql_username: socialcoin
-mysql_password: '$6$rounds=656000$aZ0rzVPmDBkRcf39$wQ3DjTLjirGv/L4SIUZ0mZ0yTwf0T0OM.o2yFi1zDMV5e3MRNTbSEF7rkpySuKpmneKFIgCrgeAQR4fdlKS9q.'
-root_password: '$6$rounds=656000$Ce0n9cjyuzpJT59H$pDs52HQoeLC2mDZRIdkxOsvEHYH0jmQ96QjnVBXjOjzdq7juXqemxvSob5pFg3agEpLVwubazWFWB6bRb4YV.0'
-
-
+username: boscp08
+password: '$6$rounds=656000$Ce0n9cjyuzpJT59H$pDs52HQoeLC2mDZRIdkxOsvEHYH0jmQ96QjnVBXjOjzdq7juXqemxvSob5pFg3agEpLVwubazWFWB6bRb4YV.0'  #Nw
+root_password: '$6$rounds=656000$Ce0n9cjyuzpJT59H$pDs52HQoeLC2mDZRIdkxOsvEHYH0jmQ96QjnVBXjOjzdq7juXqemxvSob5pFg3agEpLVwubazWFWB6bRb4YV.0' #Nw
+#webdev_password: '$6$rounds=100000$vcEVMb1oJOPHy6ui$PTnvifu.xDG8cez.FBusjI18nwe9J/Hyms/IRgXSlsJwyGgSkEHEKRs658A8Lb7DzT6fSVF6Hh4aLolauXWm81'
 # MySQL root password
-mysql_password: PASSWORD
-
+mysql_username: socialcoin
+mysql_password: '$6$rounds=656000$aZ0rzVPmDBkRcf39$wQ3DjTLjirGv/L4SIUZ0mZ0yTwf0T0OM.o2yFi1zDMV5e3MRNTbSEF7rkpySuKpmneKFIgCrgeAQR4fdlKS9q.' #Disc_tm_So#2020'
 # Timezone
 server_timezone: Europe/Amsterdam
-
 # Locale
 locale: en_US.UTF-8
 
@@ -31,9 +27,7 @@ locale: en_US.UTF-8
 # Hardening 
 #
 #####################
-
 ssh_port: 22
-
 fail2ban:
   config:
     ignoreip: 127.0.0.1/8

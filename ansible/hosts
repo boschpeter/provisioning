@@ -11,3 +11,4 @@ localhost:2222
 #server8.tezzt.nl
 
 [test-deployment]
+localhost
