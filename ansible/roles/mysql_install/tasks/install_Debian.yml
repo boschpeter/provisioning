@@ -1,0 +1,39 @@
+---
+# filename: roles/mysql/tasks/install_Debian.yml
+
+  #- name: install mysql server
+  #  apt: 
+  #    name: "{{ mysql_pkg }}" 
+  #    update_cache: yes
+
+  - name: mysql-client-server
+    apt:
+      name:
+        #- mysql-client
+        - mariadb-client
+        - mariadb-server
+      state: latest
+      cache_valid_time: 3600    # update cache if more than an hour old
+           
+  - name: python-pymysql
+    apt:
+      name:
+        - python-pymysql
+      state: latest
+      cache_valid_time: 3600    # update cache if more than an hour old
+  # rationale 20200202 fatal: [ubuntuvbx2]: FAILED! => {"changed": false, "msg": "The PyMySQL (Python 2.7 and Python 3.X) or MySQL-python (Python 2.X) module is required."}       
+  
+  - name: Determine required MySQL Python libraries.
+    set_fact:
+      deb_mysql_python_package: "{% if 'python3' in ansible_python_interpreter|default('') %}python3-mysqldb{% else %}python-mysqldb{% endif %}"
+  
+  - name: Ensure MySQL Python libraries are installed.
+    apt: "name={{ deb_mysql_python_package }} state=present"
+ 
+
+  - name: Update and upgrade apt packages
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400 #One day
+

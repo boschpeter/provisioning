@@ -1,0 +1,21 @@
+---
+
+ - name: Edit ~/socialcoin/socialcoin-api/server/datasources.json and paste
+   copy: src=socialcoin_api_server_datasources.json dest=/home/pi/socialcoin-api/server/datasources.json
+    
+ - name: Edit ~/socialcoin/socialcoin-api/server/config.json and paste
+   copy: src=socialcoin_api_server_config.json dest=/home/pi/socialcoin-api/server/config.json
+
+ - name: Edit ~/socialcoin/socialcoin-api/server/middleware.json and paste
+   copy: src=socialcoin_api_server_middleware.json dest=/home/pi/socialcoin-api/server/middleware.json
+
+ - name: Remove directory /home/pi/socialcoin-api/server  rm -rf /home/boscp08/socialcoin-api/node-modules
+   file:
+      path: /home/pi/socialcoin-api/node-modules
+      state: absent
+
+ - name: This npm i command will change the working directory to /home/pi/socialcoin-api/ /.
+   shell:
+      cmd: npm i
+      chdir: /home/pi/socialcoin-api/    
+      

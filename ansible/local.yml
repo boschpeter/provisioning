@@ -1,12 +1,17 @@
 - hosts: 127.0.0.1
   connection: local
   become: true
-  become_user: root
+  become_user: boscp08
+  #remote_user: boscp08
 
   roles:
-    - common
+ #   - common
  #   - unattended-upgrades
  #   - users
-    - mysql
+ #   - mysql
  #   - hardening
+    - mysql_install
+    - mysql_create_db
+    - mysql_import_data
     
+# ansible-playbook local.yml -i hosts -vvvv

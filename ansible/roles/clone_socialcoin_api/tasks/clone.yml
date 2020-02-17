@@ -1,0 +1,21 @@
+---
+- name: ansible remove directory /home/pi
+  file:
+      path: /home/pi/socialcoin-api
+      state: absent
+
+- name: Create Project Directory /home/pi
+  file: path=/home/boscp08/socialcoin-api state=directory
+
+- name: Install package git
+  apt:
+    name:
+    - git
+    state: latest
+    cache_valid_time: 3600    # update cache if more than an hour old
+
+- name: Git Clone github Repo command
+  command: git clone https://github.com/boschpeter/socialcoin-api.git
+  args:
+     chdir:  /home/pi
+

@@ -1,0 +1,3 @@
+---
+ # tasks file for mysql_import_data
+ - include: socialcoin_api_npm_start.yml

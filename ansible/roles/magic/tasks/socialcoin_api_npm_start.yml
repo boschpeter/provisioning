@@ -1,0 +1,6 @@
+---
+      
+  - name: nohup npm start  http://localhost:3000 hope the run wil be okay
+    shell:
+       cmd: nohup npm start   </dev/null >/dev/null 2>&1 &
+       chdir: /home/boscp08/socialcoin-api/    

@@ -1,0 +1,46 @@
+{
+  "socialcoinDb": {
+     "host": "0.0.0.0",
+     "port": "3306",
+     "database": "socialcoin",
+     "username": "socialcoinAdmin",
+     "password": "Discipl_Socialcoin2020",
+     "name": "socialcoinDb",
+     "connector": "mysql"
+   },
+   "securityDb": {
+     "host": "0.0.0.0",
+     "port": "3306",
+     "database": "security",
+     "username": "socialcoinAdmin",
+     "password": "Discipl_Socialcoin2020",
+     "name": "securityDb",
+     "connector": "mysql"
+   },
+   "emailDs": {
+     "name": "emailDs",
+     "connector": "mail",
+     "transports": [
+       {
+         "type": "smtp",
+         "host": "smtp.gmail.com",
+         "secure": true,
+         "port": 465,
+         "tls": {
+           "rejectUnauthorized": false
+         },
+         "auth": {
+           "user": "theo.theunissen1@gmail.com",
+           "pass": "^)F)6NK.-_@+7P?Kb>Zf"
+         }
+       }
+     ]
+   },
+   "storage": {
+     "name": "storage",
+     "connector": "loopback-component-storage",
+     "provider": "filesystem",
+     "root": "./storage",
+     "maxFileSize": "952428800"
+   }
+ }

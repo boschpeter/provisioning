@@ -1,0 +1,62 @@
+---
+  # wget (default) or curl
+  - block:
+    - name: Check if wget or curl is installed
+      command: "which {{ nvm_install }}"
+      register: cmd
+  
+    - name: Determine if install type wget
+      set_fact:
+        run_command: 'wget -qO-'
+      when: "'/wget' in cmd.stdout"
+  
+    - name: Determine if install type curl
+      set_fact:
+        run_command: 'curl -o-'
+      when: "'/curl' in cmd.stdout"
+  
+    - name: Create destination dir if it does not exist
+      file:
+        mode: 0775
+        path: "{{ nvm_dir }}"
+        state: directory
+      when: "nvm_dir != ''"
+
+    - name: Add "unset NPM_CONFIG_PREFIX" .bashrc
+      blockinfile:
+           block: |
+            unset NPM_CONFIG_PREFIX  # nvm is not compatible with the "NPM_CONFIG_PREFIX"
+           insertafter: "# foef"
+           marker_begin: "Installed via {{ role_repo }} START"
+           marker_end: "{{ role_repo }} END"
+           mode: 0644
+           path: "{{ nvm_profile }}"
+           state: present
+  
+    - name: Install NVM
+      shell: "{{ run_command }} https://raw.githubusercontent.com/creationix/nvm/v{{ nvm_version }}/install.sh | NVM_SOURCE={{ nvm_source }} NVM_DIR={{ nvm_dir }} PROFILE={{ nvm_profile }} bash"
+      args:
+       warn: false
+      register: nvm_result
+
+    - name: install_node_8_11_3
+      shell: >
+        . /home/boscp08/.nvm/nvm.sh && nvm install v8.11.3
+      args:
+        executable: /bin/bash
+        chdir: ""
+        creates: "/home/boscp08/.nvm/versions/v8.11.3"
+      loop:
+       - node
+
+    - name: "use v8.11.3"
+      shell: >
+        . /home/boscp08/.nvm/nvm.sh && nvm use v8.11.3
+      args:
+       executable: /bin/bash
+
+ 
+
+      when: "nvm_install == 'curl' or  nvm_install == 'wget'"
+
+ 

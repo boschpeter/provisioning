@@ -1,0 +1,73 @@
+---
+
+  - name: Ensure mysql is running and starts on boot
+    service:
+      name: mysql
+      state: started
+      enabled: yes
+    become: yes
+
+  - name: Determine required MySQL Python libraries.
+    set_fact:
+      deb_mysql_python_package: "{% if 'python3' in ansible_python_interpreter|default('') %}python3-mysqldb{% else %}python-mysqldb{% endif %}"
+  
+  - name: Ensure MySQL Python libraries are installed.
+    apt: "name={{ deb_mysql_python_package }} state=present"  
+ 
+# Write password to root home as readable only by root so future mysql
+# operations can function.
+  - name: Write root login credentials
+    copy:
+       dest: /root/.my.cnf
+       owner: root
+       group: root
+       mode: 0600
+       content: |
+           [client]
+           user=root
+           password=Nw2xdirh
+#https://github.com/ansible/ansible/issues/47736
+
+  - name: Ensure mysql root password is updated for all root accounts 
+    mysql_user:
+      name: root
+      host: localhost
+      login_unix_socket: /var/run/mysqld/mysqld.sock
+      password: Nw2xdirh
+      priv: '*.*:ALL,GRANT'
+      check_implicit_admin: true
+    become: yes
+    #notify: Restart MySQL
+
+  - name:  Grant access by editing /etc/mysql/mysql.conf.d/mysqld.cnf
+    replace:
+      #path: /etc/mysql/mysql.conf.d/mysqld.cnf
+      path: /etc/mysql/mariadb.conf.d/50-server.cnf
+      regexp: 'bind-address'
+      replace: '# bind-address  Ansible Grant access by editing '
+
+
+  - name: Create new databases with names 'socialcoin' and 'security'
+    mysql_db:
+      name:
+        - security
+        - socialcoin
+      state: present    
+    become: true
+
+
+  - name: Create database user socialcoinAdmin with name 'socialcoinAdmin' and password '12345' with all database privileges
+    mysql_user:
+      name: socialcoinAdmin
+      password: Discipl_Socialcoin2020
+      priv: '*.*:ALL'
+      state: present    
+
+  - name: Create database user theotheu with name 'socialcoinAdmin' and password '12345' with all database privileges
+    mysql_user:
+      name: theotheu
+      password: theotheu
+      priv: '*.*:ALL,GRANT'
+      state: present        
+
+
