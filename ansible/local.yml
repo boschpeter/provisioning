@@ -11,8 +11,8 @@
  #   - users
  #   - mysql
  #   - hardening
-    - mysql_install
-#    - mysql_create_db
+    #- mysql_install
+     - mysql_create_db
 #    - mysql_import_data
     
     #- clone_socialcoin_api
