@@ -6,12 +6,20 @@
 
   roles:
  #   - common
+    #- apt_get_update
  #   - unattended-upgrades
  #   - users
  #   - mysql
  #   - hardening
     - mysql_install
-    - mysql_create_db
-    - mysql_import_data
+#    - mysql_create_db
+#    - mysql_import_data
+    
+    #- clone_socialcoin_api
+    #- config_socialcoin_api
+    #- install_nodejs_10_18_1
+    #- install_nvm_8_11_3
+    #- magic
+
     
 # ansible-playbook local.yml -i hosts -vvvv

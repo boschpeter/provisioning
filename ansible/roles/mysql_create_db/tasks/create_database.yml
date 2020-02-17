@@ -33,7 +33,7 @@
       name: root
       host: localhost
       login_unix_socket: /var/run/mysqld/mysqld.sock
-      password: Nw2xdirh
+      password: "{{ mysql_root_password }}"   #Nw2xdirh
       priv: '*.*:ALL,GRANT'
       check_implicit_admin: true
     become: yes
@@ -55,19 +55,25 @@
       state: present    
     become: true
 
-
-  - name: Create database user socialcoinAdmin with name 'socialcoinAdmin' and password '12345' with all database privileges
+ - name: Create database user <<username>> with name '<<username>>' and password '********' with all database privileges
     mysql_user:
-      name: socialcoinAdmin
-      password: Discipl_Socialcoin2020
-      priv: '*.*:ALL'
-      state: present    
-
-  - name: Create database user theotheu with name 'socialcoinAdmin' and password '12345' with all database privileges
-    mysql_user:
-      name: theotheu
-      password: theotheu
+      name: "{{ mysql_username }}"
+      password: "{{ mysql_password }}"
       priv: '*.*:ALL,GRANT'
-      state: present        
+      state: present   
+
+  #- name: Create database user socialcoinAdmin with name 'socialcoinAdmin' and password '12345' with all database privileges
+  #  mysql_user:
+  #    name: socialcoinAdmin
+  #    password: Discipl_Socialcoin#2020
+  #    priv: '*.*:ALL'
+  #    state: present    
+
+  #- name: Create database user theotheu with name 'socialcoinAdmin' and password '12345' with all database privileges
+  #  mysql_user:
+  #    name: theotheu
+  #    password: theotheu
+  #    priv: '*.*:ALL,GRANT'
+  #     state: present        
 
 

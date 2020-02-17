@@ -11,8 +11,8 @@
 
 # The name of the OS user (johndoe, ubuntu, vagrant)
 username: boscp08
-password: '$6$rounds=656000$Ce0n9cjyuzpJT59H$pDs52HQoeLC2mDZRIdkxOsvEHYH0jmQ96QjnVBXjOjzdq7juXqemxvSob5pFg3agEpLVwubazWFWB6bRb4YV.0'  #Nw
-root_password: '$6$rounds=656000$Ce0n9cjyuzpJT59H$pDs52HQoeLC2mDZRIdkxOsvEHYH0jmQ96QjnVBXjOjzdq7juXqemxvSob5pFg3agEpLVwubazWFWB6bRb4YV.0' #Nw
+boscp08_password: '$6$rounds=656000$Ce0n9cjyuzpJT59H$pDs52HQoeLC2mDZRIdkxOsvEHYH0jmQ96QjnVBXjOjzdq7juXqemxvSob5pFg3agEpLVwubazWFWB6bRb4YV.0'  #Nw
+mysql_root_password: '$6$rounds=656000$Ce0n9cjyuzpJT59H$pDs52HQoeLC2mDZRIdkxOsvEHYH0jmQ96QjnVBXjOjzdq7juXqemxvSob5pFg3agEpLVwubazWFWB6bRb4YV.0' #Nw
 #webdev_password: '$6$rounds=100000$vcEVMb1oJOPHy6ui$PTnvifu.xDG8cez.FBusjI18nwe9J/Hyms/IRgXSlsJwyGgSkEHEKRs658A8Lb7DzT6fSVF6Hh4aLolauXWm81'
 # MySQL root password
 mysql_username: socialcoin
