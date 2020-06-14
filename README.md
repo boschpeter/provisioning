@@ -3,6 +3,10 @@
 
 socialcoin-api. 
 
+https://releases.ubuntu.com/20.04/
+
+
+
 
 https://github.com/theotheu/
 
